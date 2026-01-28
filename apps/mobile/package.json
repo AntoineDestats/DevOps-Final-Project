@@ -1,0 +1,18 @@
+{
+  "name": "@loueunechevre/mobile",
+  "version": "0.1.0",
+  "private": true,
+  "main": "App.jsx",
+  "scripts": {
+    "start": "expo start",
+    "android": "expo start --android",
+    "ios": "expo start --ios",
+    "lint": "echo \"TODO: mobile lint not configured\""
+  },
+  "dependencies": {
+    "expo": "^53.0.0",
+    "react": "^19.1.0",
+    "react-native": "^0.79.0",
+    "lucide-react-native": "^0.468.0"
+  }
+}
