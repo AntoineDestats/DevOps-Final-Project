@@ -1,4 +1,4 @@
-# Architecture actuelle, plus ou moins
+# Architecture actuelle
 
 ```text
 client web
@@ -15,11 +15,11 @@ app Expo prototype
   -> les donnees terrain sont notees en local pour l'instant
 ```
 
-## Points flous
+## A Verifier
 
 - On ne sait pas exactement qui redemarre l'API apres deploy.
 - Les logs sont dans `/var/log/loueunechevre/` sauf quand systemd les garde dans journalctl.
-- Les backups sont faits par cron, mais Marc a dit que "ca tourne".
+- Les backups sont faits par cron "ca tourne" (checké par Marc)
 - Le certificat TLS est renouvele par certbot, normalement.
 
 ## Risques connus
