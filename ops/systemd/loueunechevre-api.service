@@ -1,0 +1,19 @@
+[Unit]
+Description=LoueUneChevre API
+After=network.target
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/loueunechevre/current/services/api
+Environment=NODE_ENV=production
+EnvironmentFile=/etc/loueunechevre/api.env
+ExecStart=/usr/bin/node src/server.js
+Restart=always
+RestartSec=5
+
+# TODO: Marc avait teste avec /usr/local/bin/node sur l'ancien VPS.
+# Verifier le chemin avant prochain changement de version Node.
+
+[Install]
+WantedBy=multi-user.target

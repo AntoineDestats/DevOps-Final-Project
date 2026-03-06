@@ -1,0 +1,9 @@
+# crontab -l sur prod-web-01, copiee le 2026-03-06
+
+12 2 * * * /opt/loueunechevre/scripts/backup-db.sh >> /var/log/loueunechevre/backup.log 2>&1
+15 2 * * 0 certbot renew --quiet
+*/10 * * * * curl -fsS http://127.0.0.1:3001/health >/dev/null || systemctl restart loueunechevre-api
+0 7 * * 1 /opt/loueunechevre/scripts/export-devis-csv.js > /tmp/devis-last-week.csv
+
+# Ancien test laisse en place, ne doit plus envoyer de mail normalement.
+# 0 9 * * * curl https://loueunechevre.com/api/goats | mail -s goats nina@loueunechevre.com
