@@ -1,4 +1,5 @@
 const http = require("http");
+const { estimateQuote } = require("./pricing");
 
 const goats = [
   { id: "marguerite", name: "Marguerite", speciality: "ronces", dailyRate: 42 },
@@ -12,13 +13,6 @@ function sendJson(res, statusCode, payload) {
     "Access-Control-Allow-Origin": "*"
   });
   res.end(JSON.stringify(payload));
-}
-
-function estimateQuote(surface, terrainType) {
-  const numericSurface = Number(surface || 1000);
-  const terrainMultiplier = terrainType === "ronces" ? 1.35 : terrainType === "pente" ? 1.2 : 1;
-  const days = Math.max(1, Math.ceil(numericSurface / 1200));
-  return Math.round(days * 95 * terrainMultiplier);
 }
 
 function createServer() {
